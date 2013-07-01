@@ -6,6 +6,13 @@
 #property copyright "Copyright © 2010, MetaQuotes Software Corp."
 #property link      "http://www.metaquotes.net"
 
+//Returns the lenght of the N bar where N is passed into the method as an argument. It is the fist bar by default
+double BarLength(int bar_number = 1){
+  double bar_length = 0; 
+  bar_length = MathAbs((High[1] - Low[1])*10000);
+  return(bar_length);
+  }
+
 //+------------------------------------------------------------------+
 //| expert initialization function                                   |
 //+------------------------------------------------------------------+
@@ -29,11 +36,8 @@ int deinit()
 //+------------------------------------------------------------------+
 //| expert start function                                            |
 //+------------------------------------------------------------------+
-int start()
-  {
-  double Bar1_Length = 0; 
-  Bar1_Length = MathAbs((High[1] - Low[1])*10000);
-  Comment("the length of the last bar in the chart was ", Bar1_Length, " pips");
+int start() {
+  
 //----
    
 //----
